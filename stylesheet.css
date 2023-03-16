@@ -22,12 +22,42 @@ img {
     flex-direction: column;
 }
 
-.profile .name{
+.profile .name {
     color: white;
+    padding-left: 10px;
 }
 
-.links img{
+.profile .blink::after {
+    content: "_";
+    background-color: white;
+}
+
+@keyframes cursor-blink {
+    0% {
+        background-color: white;
+        color: white;
+    }
+
+    50% {
+        background-color: black;
+        color: black;
+    }
+}
+
+.profile .blink::after {
+    animation: cursor-blink 1.5s steps(1) infinite;
+    animation-delay: 1.3s;
+
+}
+
+
+.links img {
     height: auto;
     width: 30px;
-    margin: 2rem;
+}
+
+.links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
 }
