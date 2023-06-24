@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css">
     <title>
-        ATP
+        0xKobalt
     </title>
 </head>
 
@@ -21,12 +21,57 @@
             </h1>
         </div>
         <div class="links">
-            <a href="https://github.com/atp03"><img src="logos/github-mark.png"></a>
+            <a href="https://github.com/atp03"><img src="logos/github-mark-white.png"></a>
             <a href="https://www.linkedin.com/in/thien-an-pham-54a835256/"><img src="logos/LI-In-Bug.png"></a>
+        </div>
+        <div class="scroll">
+            <div class="down-arrow1"></div>
+            <div class="down-arrow2"></div>
+            <div class="down-arrow3"></div>
+        </div>
+    </div>
+    <div class="pages-container">
+        <div class="pages">
+            <ul>
+                <li>&#10799;</li>
+                <li>&#9633;</li>
+                <li>_</li>
+                <li><button type="button" onclick="display('intro')">My page!</button></li>
+                <li><button type="button" onclick="display('projects')">Projects</button></li>
+                <!-- <li><button type="button" onclick="display('blog')">Blog</button></li> -->
+            </ul>
+            <div id="intro" class="show">
+                Welcome to my page!
+            </div>
+            <div id="projects" class="hide">
+                <h2>
+                    University assignments
+                </h2>
+                <a href="projects.html">Test</a>
+            </div>
         </div>
     </div>
 
+
     <script>
+        function display(item) {
+            switch (item) {
+                case 'intro':
+                    document.getElementById("intro").setAttribute("class", "show");
+                    document.getElementById("projects").setAttribute("class", "hide");
+                    break;
+                case 'projects':
+                    document.getElementById("intro").setAttribute("class", "hide");
+                    document.getElementById("projects").setAttribute("class", "show");
+                    break;
+            }
+
+
+            //    if (document.getElementById("intro").getAttribute("class") === "show"){
+            //         document.getElementById("intro").setAttribute("class", "hide");
+            //     }
+        }
+
         var decrypted = document.getElementById("decoded");
         var encrypted = document.getElementById("encoded");
 
@@ -56,7 +101,6 @@
                 // Stop when done
                 if (!shuffledText.length) clearInterval(shuffleInterval);
 
-                // 50ms looks more dramatic
             }, 15);
         }
 

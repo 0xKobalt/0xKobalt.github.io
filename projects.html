@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <title>
+        0xKobalt
+    </title>
+</head>
+
+<body>
+    <form onsubmit="return false">
+        <label for="w1">1st side length:</label><br>
+        <input type="number" step="any" id="w1" name="w1"><br>
+        <label for="w2">2st side length:</label><br>
+        <input type="number" step="any" id="w2" name="w2"><br>
+        <label for="h">height:</label><br>
+        <input type="number" step="any" id="h" name="h"><br>
+        <input py-click="whcalc" type="submit" id="btn-form" value="submit">
+    </form>
+    
+    <p id='output'></p>
+    
+    <py-script>
+    def whcalc(*args,**kwargs):
+        w1 = float(Element('w1').value)
+        w2 = float(Element('w2').value)
+        h = float(Element('h').value)
+        result_place = Element('output')
+        if w1 > 0 and w2 > 0 and h > 0:
+            s = 1/2*h*w1+w2
+            result_place.write('this is trapezoidal ' + str(s))
+    </py-script>
+</body>
+
+</html>

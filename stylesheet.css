@@ -2,17 +2,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    flex-direction: column;
     background-color: black;
     margin: 0rem;
-    overflow: hidden;
     font-family: 'Source Code Pro', monospace;
-}
-
-img {
-    width: 50%;
-    height: auto;
 }
 
 .profile {
@@ -20,11 +13,18 @@ img {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.profile img{
+    height: auto;
+    width: 15%;
 }
 
 .profile .name {
     color: white;
-    padding-left: 10px;
 }
 
 .profile .blink::after {
@@ -45,19 +45,118 @@ img {
 }
 
 .profile .blink::after {
-    animation: cursor-blink 1.5s steps(1) infinite;
-    animation-delay: 1.3s;
-
+    animation: cursor-blink 1.2s steps(1) infinite;
+    animation-delay: 1.4s;
 }
-
 
 .links img {
     height: auto;
     width: 30px;
 }
 
-.links {
-    width: 50%;
+.links{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.links a{
+    margin: 0 40%;
+}
+
+.down-arrow1, .down-arrow2, .down-arrow3 {
+    position: absolute;
+    top: calc(100vh - 60px);
+    color: rgb(255, 255, 255);
+}
+
+.down-arrow1:after, .down-arrow2:after, .down-arrow3:after   {
+    content: " ";
+    position: absolute;
+    left: -10px;
+    width: 16px;
+    height: 16px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    transform: rotateZ(45deg);
+}
+
+.down-arrow1:after {
+    top: -5px;
+}
+
+.down-arrow2:after {
+    top: 5px;
+}
+
+.down-arrow3:after {
+    top: 15px;
+}
+
+@keyframes scroll {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.scroll div{
+    animation: scroll 2s infinite;
+}
+
+.scroll div:nth-of-type(2){
+    animation-delay: .15s;
+}
+.scroll div:nth-of-type(3){
+    animation-delay: .30s;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid white;
+  }
+  
+  li {
+    padding: 10px 20px;
+    float: right;
+    color: white;
+    border: 1px solid white;
+    background-color: black;
+  }
+  
+  .pages li:nth-of-type(n + 4){
+    float: left;
+    border: 1px solid white;
+  }
+
+.pages-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.pages {
+    width: 1000px;
+    background-color: black;
+    border: solid 1px rgb(255, 255, 255);
+}
+
+.show{
+    padding: 100px;
+    background-color: black;
+    color: white;
+    border: solid 1px rgb(255, 255, 255);
+}
+
+.hide{
+    display: none;
 }
